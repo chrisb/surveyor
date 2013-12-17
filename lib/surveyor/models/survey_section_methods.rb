@@ -9,6 +9,8 @@ module Surveyor
         has_many :questions, :dependent => :destroy
         belongs_to :survey
 
+        scope :with_includes, -> { includes :questions }
+
         # Validations
         validates_presence_of :title, :display_order
       end
